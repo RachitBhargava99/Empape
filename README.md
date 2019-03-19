@@ -34,6 +34,12 @@ CLOUDSQL_CONNECTION_NAME: enter_connection_name
 </pre>
 <hr>
 
+## LocalHost Requirements
+This application can also be deployed on localhost.
+However, before you do that, you would need to install the packages listed in <code>requirements.txt</code> file.
+Once done, run the <code>run.py</code> file
+and browse to <code>http://127.0.0.1/</code> using your preferred web browser.
+
 ## Contact Info
 In case of any queries, please feel free to contact Rachit Bhargava (developer) at rachitbhargava99@gmail.com.
 
