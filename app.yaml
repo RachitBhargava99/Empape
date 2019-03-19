@@ -1,4 +1,4 @@
-service: eventster
+service: empape
 runtime: python37
 entrypoint: gunicorn -t 120 -b :$PORT run:app
 
