@@ -7,13 +7,14 @@ dash = Blueprint('dash', __name__)
 
 @dash.route('/', methods=['GET'])
 def home():
-    return render_template('home.html')
+    return render_template('home.html', supported=current_app.config['SUPPORTED'])
 
 
 @dash.route('/emp/<website>', methods=['GET'])
 def show_emp(website):
     website = website.upper()
-    if website == "TWILIO":
+    if website == "TWILIO" or website == "SQUARESPACE" or website == "PINTEREST" or website == "JDPOWER"\
+            or website == "THETRADEDESK" or website == "HARRYS":
         raw_data = requests.get(current_app.config[f'{website}_EMP_URL'])
         data = raw_data.json()
         final_list = []
@@ -63,6 +64,21 @@ def show_emp(website):
                     'url': job['absolute_url']
                 })
                 i += 1
+        return render_template('all_emp.html', data=final_list, company=titlecase(website))
+    elif website == "HUBSPOT":
+        raw_data = requests.get(current_app.config[f'{website}_EMP_URL'])
+        data = raw_data.json()
+        final_list = []
+        i = 1
+        for job in data:
+            final_list.append({
+                'id': i,
+                'title': job['title'],
+                'location': job['offices'],
+                'department': job['department'],
+                'url': job['appUrl']
+            })
+            i += 1
         return render_template('all_emp.html', data=final_list, company=titlecase(website))
     else:
         return render_template('all_emp.html', data=[], company=titlecase(website))

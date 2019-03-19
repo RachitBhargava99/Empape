@@ -51,26 +51,42 @@
             {% endfor %}
             {% endif %}
             {% endwith %}
-            <div class="container-login100-form-btn p-t-10">
-                <a href="/emp/TWILIO">
-                    <button class="login100-form-btn">
-                        Twilio
-                    </button>
-                </a>
-            </div>
-            <div class="container-login100-form-btn p-t-10">
-                <a href="/emp/AIRBNB">
-                    <button class="login100-form-btn">
-                        Airbnb
-                    </button>
-                </a>
-            </div>
-            <div class="container-login100-form-btn p-t-10">
-                <a href="/emp/YEXT">
-                    <button class="login100-form-btn">
-                        Yext
-                    </button>
-                </a>
+            <div class="row">
+                <div class="col-lg-4">
+                    {% for i in range(0, (supported|length // 3 + (1 if supported|length % 3 >= 1 else 0))) %}
+                    <div class="container-login100-form-btn p-t-10">
+                        <a href="/emp/{{ supported[i] }}">
+                            <button class="login100-form-btn">
+                                {{ supported[i] }}
+                            </button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-lg-4">
+                    {% for i in range((supported|length // 3 + (1 if supported|length % 3 >= 1 else 0)),
+                    (2 * (supported|length // 3) + (2 if supported|length % 3 >= 2 else 0))) %}
+                    <div class="container-login100-form-btn p-t-10">
+                        <a href="/emp/{{ supported[i] }}">
+                            <button class="login100-form-btn">
+                                {{ supported[i] }}
+                            </button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col-lg-4">
+                    {% for i in range((2 * (supported|length // 3) + (2 if supported|length % 3 >= 2 else 0)),
+                    (supported|length)) %}
+                    <div class="container-login100-form-btn p-t-10">
+                        <a href="/emp/{{ supported[i] }}">
+                            <button class="login100-form-btn">
+                                {{ supported[i] }}
+                            </button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
