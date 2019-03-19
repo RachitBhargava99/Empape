@@ -24,7 +24,7 @@ def show_emp(website):
                     final_list.append({
                         'id': i,
                         'title': job['title'],
-                        'location': location['name'],
+                        'location': location['location'],
                         'department': dept['name'],
                         'url': job['absolute_url']
                     })
