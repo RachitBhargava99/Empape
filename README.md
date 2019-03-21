@@ -1,4 +1,4 @@
-# Eventster
+# Empape
 Welcome to Empape - time to see get in touch with the jobs at the companies you love without getting tracker!
 
 Please note that some of the files in this repository are native to deploying on Google App Engine.
