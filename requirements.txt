@@ -4,3 +4,4 @@ gunicorn
 pymysql
 sqlalchemy
 titlecase
+Flask-Testing
